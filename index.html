@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Page</title>
+    <style>
+        /* Basic reset for body and html */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            background: #000; /* Black background for a clean video view */
+        }
+        
+        /* Styling for iframe to cover the entire screen */
+        #myVideo {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100vw; /* Full viewport width */
+            height: 100vh; /* Full viewport height */
+            border: none;
+        }
+
+        /* Add responsive design for portrait mode */
+        @media only screen and (orientation: portrait) {
+            #myVideo {
+                width: 100vw;
+                height: 100vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Video Iframe setup -->
+    <iframe id="myVideo" src="https://www.youtube.com/embed/O2FtFWiHots?autoplay=1&mute=0&controls=0&showinfo=0&modestbranding=1&rel=0" allowfullscreen></iframe>
+
+    <script>
+        // Wait until the document is fully loaded
+        document.addEventListener("DOMContentLoaded", function() {
+            var iframe = document.getElementById("myVideo");
+
+            // Try to open the video in fullscreen when the page loads
+            function openFullscreen() {
+                if (iframe.requestFullscreen) {
+                    iframe.requestFullscreen();
+                } else if (iframe.mozRequestFullScreen) { /* Firefox */
+                    iframe.mozRequestFullScreen();
+                } else if (iframe.webkitRequestFullscreen) { /* Chrome, Safari, and Opera */
+                    iframe.webkitRequestFullscreen();
+                } else if (iframe.msRequestFullscreen) { /* IE/Edge */
+                    iframe.msRequestFullscreen();
+                }
+            }
+
+            // Automatically try to go fullscreen on load for a better mobile experience
+            openFullscreen();
+
+            // Redirect after the duration of the video (16 seconds)
+            setTimeout(function() {
+                window.location.href = "https://www.exporentals.com";
+            }, 16000);
+        });
+    </script>
+</body>
+</html>
+
