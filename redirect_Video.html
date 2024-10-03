@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Video Page</title>
+</head>
+<body>
+    <iframe id="myVideo" width="100%" height="500" src="https://www.youtube.com/embed/O2FtFWiHots?autoplay=1&mute=1" frameborder="0" allowfullscreen></iframe>
+
+    <script>
+        // Set the duration of the video in milliseconds (16 seconds in this case)
+        var videoDuration = 16000; // Adjust the duration if the video length changes
+
+        // Redirect after the duration has passed
+        setTimeout(function() {
+            window.location.href = "https://www.exporentals.com";
+        }, videoDuration);
+    </script>
+</body>
+</html>
